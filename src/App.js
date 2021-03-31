@@ -17,6 +17,11 @@ export default class App {
     })
     const resultsSection = new ResultsSection({
       $target
-    })
+    });
+
+    const darkModeButton = document.createElement('span');
+    darkModeButton.className = 'dark-mode-button';
+    darkModeButton.innerText = '🌕';
+    $target.appendChild(darkModeButton)
   }
 }
