@@ -24,7 +24,7 @@ const applySetting = (setting) => {
 
 }
 const setButtonLable = (currentSetting) => {
-  darkModeButton.innerHTML = currentSetting === 'dark' ? '🌕' : '🌑'
+  darkModeButton.innerHTML = currentSetting === 'dark' ? '🌕' : '🌞'
 }
 const toggleSetting = () => {
   let currentSetting = localStorage.getItem('user-color-scheme');

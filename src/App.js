@@ -1,6 +1,7 @@
 import SearchingSection from './components/SearchingSection.js';
 import ResultsSection from './components/ResultsSection.js';
 import { api } from './api.js'
+import DetailModal from './components/detailModal.js';
 export default class App {
   constructor($target) {
     const searchingSection = new SearchingSection({
@@ -16,8 +17,14 @@ export default class App {
       }
     })
     const resultsSection = new ResultsSection({
-      $target
+      $target,
+      onClick: (data) => {
+        detailModal.setState(data);
+      }
     });
+    const detailModal = new DetailModal({
+      $target
+    })
 
     const darkModeButton = document.createElement('span');
     darkModeButton.className = 'dark-mode-button';

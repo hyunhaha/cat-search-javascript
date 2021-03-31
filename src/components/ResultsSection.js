@@ -1,7 +1,8 @@
 import Card from './Card.js'
 export default class ResultsSection {
-  constructor({ $target }) {
+  constructor({ $target, onClick }) {
     this.data = null
+    this.onClick = onClick;
     this.section = document.createElement('section');
     this.section.className = 'results-section';
     $target.appendChild(this.section)
@@ -14,7 +15,11 @@ export default class ResultsSection {
 
 
   }
-
+  findCatByID(id) {
+    const result = this.data.find(cat => cat.id === id);
+    console.log(result)
+    return result
+  }
   render() {
     if (!this.data) return;
     this.section.innerHTML = '';
@@ -23,6 +28,19 @@ export default class ResultsSection {
       cardContainer.className = 'card-container';
       this.data.map(cat => {
         new Card({ $target: cardContainer, data: cat })
+      });
+      cardContainer.addEventListener('click', e => {
+        console.log(e.path[0].className)
+        console.log('clicked')
+        const path = e.path;
+        const card = path.find(e => e.className === 'card');
+        if (card) {
+          console.log(card)
+          console.log(card.dataset.id)
+          const id = card.dataset.id;
+          const catInfo = this.findCatByID(id);
+          this.onClick(catInfo);
+        }
       })
       this.section.appendChild(cardContainer);
     } else {
