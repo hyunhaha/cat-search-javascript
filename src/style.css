@@ -36,17 +36,35 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .search-box-wrapper {
   display: flex;
   flex-direction: column;
+
   width: 50%;
 }
 
 .search-box {
   font-size: 20px;
 }
-
+.recent-keywords {
+  background-color: rgb(52, 78, 224);
+  color: white;
+  border-radius: 11px;
+  padding: 5px;
+  margin-top: 10px;
+}
+.keyword {
+  padding-right: 10px;
+  cursor: pointer;
+}
+.keyword:last-child {
+  padding-right: 0;
+}
+.keyword:hover {
+  color: rgb(216, 135, 153);
+}
 .results-section {
   margin-top: 3%;
 }
@@ -143,6 +161,17 @@ body {
 }
 .modal-image {
   height: 60%;
+}
+
+.spinner-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 992px) {
