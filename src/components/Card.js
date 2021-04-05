@@ -13,8 +13,8 @@ export default class Card {
     const { name, origin } = this.data.breeds.length > 0 ? this.data.breeds[0] : { name: '정보없음', origin: '정보없음' }
     const cardImage = document.createElement('img');
     cardImage.className = 'card-image';
-    cardImage.src = url;
-
+    cardImage.classList.add('lazy');
+    cardImage.dataset.src = url;
 
     const cardInfo = document.createElement('div');
     cardInfo.className = 'card-info';
