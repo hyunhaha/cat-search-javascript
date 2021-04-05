@@ -1,9 +1,10 @@
 import { setItem } from '../util/sessionStorage.js';
 
 export default class SearchBar {
-  constructor({ $target, keywords, onSearch }) {
-    this.recentSearchWords = keywords
-    this.onSearch = onSearch
+  constructor({ $target, keywords, onSearch, onRandom }) {
+    this.recentSearchWords = keywords;
+    this.onSearch = onSearch;
+    this.onRandom = onRandom;
     this.section = document.createElement('section');
     this.section.className = 'searching-section';
 
@@ -35,6 +36,10 @@ export default class SearchBar {
   render() {
     this.section.innerHTML = '';
 
+    const randomButton = document.createElement('span');
+    randomButton.className = 'random-button';
+    randomButton.innerText = '😺'
+
     const wapper = document.createElement('div');
     wapper.className = 'search-box-wapper';
 
@@ -63,7 +68,10 @@ export default class SearchBar {
         this.searchKeyword(keyword);
       })
     })
-    searchBox.addEventListener('focus', () => this.deleteKeyword())
+
+    randomButton.addEventListener('click', () => { this.onRandom() })
+
+    searchBox.addEventListener('focus', () => this.deleteKeyword());
     searchBox.addEventListener('keyup', (event) => {
       if (event.code === 'Enter') {
         console.log('Enter');
@@ -73,7 +81,8 @@ export default class SearchBar {
     });
 
     wapper.appendChild(searchBox);
-    wapper.appendChild(recentKeywords)
-    this.section.appendChild(wapper)
+    wapper.appendChild(recentKeywords);
+    this.section.appendChild(randomButton);
+    this.section.appendChild(wapper);
   }
 }

@@ -22,6 +22,18 @@ export default class App {
           resultsSection.setState(response.data)
           loading.toggleSpinner()
         }
+      },
+      onRandom: async () => {
+        console.log('click')
+        loading.toggleSpinner();
+        const response = await api.fetchRamdom();
+        if (!response.isError) {
+          setItem('data', response.data)
+          resultsSection.setState(response.data);
+          loading.toggleSpinner();
+        } else {
+
+        }
       }
     })
     const resultsSection = new ResultsSection({

@@ -37,5 +37,19 @@ const api = {
       }
     }
   },
+  fetchRamdom: async () => {
+    try {
+      const result = await request(`${APIEndPoint}/images/search?limit=20`);
+      return {
+        isError: false,
+        data: result
+      }
+    } catch (error) {
+      return {
+        isError: true,
+        data: error
+      }
+    }
+  }
 }
 export { api }
