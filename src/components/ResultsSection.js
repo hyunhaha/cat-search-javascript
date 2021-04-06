@@ -1,8 +1,8 @@
 import { lazyLoad } from '../util/lazyLoad.js';
 import Card from './Card.js'
 export default class ResultsSection {
-  constructor({ $target, onClick }) {
-    this.data = null
+  constructor({ $target, data, onClick }) {
+    this.data = data
     this.onClick = onClick;
     this.section = document.createElement('section');
     this.section.className = 'results-section';

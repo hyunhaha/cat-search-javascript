@@ -19,6 +19,7 @@ export default class App {
         const response = await api.fetchCats(keyword);
         console.log(response)
         if (!response.isError) {
+          setItem('data', response.data)
           resultsSection.setState(response.data)
           loading.toggleSpinner()
         }
@@ -38,6 +39,7 @@ export default class App {
     })
     const resultsSection = new ResultsSection({
       $target,
+      data,
       onClick: (data) => {
         detailModal.setState(data);
       }
