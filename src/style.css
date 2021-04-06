@@ -104,11 +104,14 @@ body {
 }
 
 .card {
+  position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 24%;
   height: 350px;
   margin-right: calc((100% - (24% * 4)) / 3);
+  cursor: pointer;
 }
 .card:nth-child(4n + 4) {
   margin: 0;
@@ -118,7 +121,15 @@ body {
   min-width: 260px;
   height: 70%;
 }
-
+.card-info {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+}
+.card:hover .card-info {
+  display: block;
+}
 .dark-mode-button {
   font-size: 3rem;
   position: fixed;
