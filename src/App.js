@@ -42,6 +42,17 @@ export default class App {
       data,
       onClick: (data) => {
         detailModal.setState(data);
+      },
+      onScroll: async () => {
+        loading.toggleSpinner();
+        const response = await api.fetchRamdom();
+        if (!response.isError) {
+          const origin = getItem('data');
+          const updated = [...origin, ...response.data];
+          setItem('data', updated);
+          resultsSection.setState(updated);
+          loading.toggleSpinner();
+        }
       }
     });
     const detailModal = new DetailModal({
