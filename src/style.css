@@ -76,6 +76,42 @@ body {
   color: rgb(216, 135, 153);
 }
 
+.banner-section {
+  position: relative;
+  margin: 0 auto;
+  box-sizing: border-box;
+  opacity: 0;
+}
+.display {
+  width: 260px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+.image-container {
+  display: flex;
+  transition: ease 0.5s;
+}
+.image-wrap {
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  margin: 5px;
+  flex: 250px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.right,
+.left {
+  font-size: 2em;
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
 .results-section {
   margin-top: 3%;
 }

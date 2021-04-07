@@ -18,7 +18,7 @@ export default class ResultsSection {
   }
   setState(data) {
     this.data = data;
-
+    console.log(this.data)
     this.render();
     lazyLoad();
 
@@ -65,7 +65,7 @@ export default class ResultsSection {
       noticeImage.src = 'src/img/emptybox.png'
       noticeSection.appendChild(notice);
       noticeSection.appendChild(noticeImage)
-      this.section.append(noticeSection);
+      this.section.appendChild(noticeSection);
     }
   }
 }

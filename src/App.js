@@ -4,10 +4,13 @@ import DetailModal from './components/detailModal.js';
 import Loading from './components/Loading.js';
 import { api } from './api.js'
 import { getItem, setItem } from './util/sessionStorage.js'
+import Banner from './components/Banner.js';
 export default class App {
   constructor($target) {
     const keywords = getItem('keywords');
     const data = getItem('data')
+
+
 
     const searchingSection = new SearchingSection({
       $target,
@@ -36,7 +39,22 @@ export default class App {
 
         }
       }
+    });
+
+    const banner = new Banner({
+      $target,
+      onRandom: async () => {
+        // loading.toggleSpinner();
+        const response = await api.fetchRamdom();
+        if (!response.isError) {
+
+          console.log(response.data)
+          banner.getData(response.data);
+          // loading.toggleSpinner();
+        }
+      }
     })
+
     const resultsSection = new ResultsSection({
       $target,
       data,
