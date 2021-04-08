@@ -17,10 +17,8 @@ export default class App {
       keywords,
       onSearch: async (keyword) => {
         //keyword를 받아와서  api에 검색하기
-        console.log(keyword)
         loading.toggleSpinner();
         const response = await api.fetchCats(keyword);
-        console.log(response)
         if (!response.isError) {
           setItem('data', response.data)
           resultsSection.setState(response.data)
@@ -28,7 +26,7 @@ export default class App {
         }
       },
       onRandom: async () => {
-        console.log('click')
+
         loading.toggleSpinner();
         const response = await api.fetchRamdom();
         if (!response.isError) {
@@ -47,8 +45,6 @@ export default class App {
         // loading.toggleSpinner();
         const response = await api.fetchRamdom();
         if (!response.isError) {
-
-          console.log(response.data)
           banner.getData(response.data);
           // loading.toggleSpinner();
         }

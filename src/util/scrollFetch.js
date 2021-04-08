@@ -3,7 +3,7 @@ const throttler = throttling()
 const scrollFetch = (fetchData) => {
   window.addEventListener('scroll', () => {
     throttler.throttle(() => {
-      console.log('scrollevent');
+
       if (getScrollTop() < getDocumentHeight() - window.innerHeight) return;
       fetchData();
     }, 700)

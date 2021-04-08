@@ -36,12 +36,12 @@ export default class SearchBar {
   render() {
     this.section.innerHTML = '';
 
-    const randomButton = document.createElement('span');
+    const randomButton = document.createElement('button');
     randomButton.className = 'random-button';
     randomButton.innerText = '😺'
 
     const wapper = document.createElement('div');
-    wapper.className = 'search-box-wapper';
+    wapper.className = 'search-box-wrapper';
 
     const searchBox = document.createElement('input');
     searchBox.className = 'search-box';
@@ -74,15 +74,14 @@ export default class SearchBar {
     searchBox.addEventListener('focus', () => this.deleteKeyword());
     searchBox.addEventListener('keyup', (event) => {
       if (event.code === 'Enter') {
-        console.log('Enter');
         this.searchKeyword(searchBox.value)
 
       }
     });
 
+    wapper.appendChild(randomButton);
     wapper.appendChild(searchBox);
-    wapper.appendChild(recentKeywords);
-    this.section.appendChild(randomButton);
     this.section.appendChild(wapper);
+    this.section.appendChild(recentKeywords);
   }
 }

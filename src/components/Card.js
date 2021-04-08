@@ -4,7 +4,6 @@ export default class Card {
     this.card = document.createElement('article');
     this.card.className = 'card';
     this.card.dataset.id = data.id;
-    console.log(data)
     $target.appendChild(this.card);
     this.render();
   }

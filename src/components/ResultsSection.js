@@ -16,19 +16,18 @@ export default class ResultsSection {
     scrollFetch(this.onScroll);
 
   }
+
   setState(data) {
     this.data = data;
-    console.log(this.data)
     this.render();
     lazyLoad();
-
-
   }
+
   findCatByID(id) {
     const result = this.data.find(cat => cat.id === id);
-    console.log(result)
     return result
   }
+
   render() {
     if (!this.data) return;
     this.section.innerHTML = '';
@@ -39,13 +38,9 @@ export default class ResultsSection {
         new Card({ $target: cardContainer, data: cat })
       });
       cardContainer.addEventListener('click', e => {
-        console.log(e.path[0].className)
-        console.log('clicked')
         const path = e.path;
         const card = path.find(e => e.className === 'card');
         if (card) {
-          console.log(card)
-          console.log(card.dataset.id)
           const id = card.dataset.id;
           const catInfo = this.findCatByID(id);
           this.onClick(catInfo);

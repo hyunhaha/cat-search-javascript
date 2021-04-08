@@ -34,24 +34,23 @@ body {
 }
 .searching-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 50%;
+  margin: 0 auto;
 }
 .search-box-wrapper {
-  display: flex;
-  flex-direction: column;
-
-  width: 50%;
 }
 
 .search-box {
-  font-size: 20px;
+  font-size: 36px;
 }
 
 .recent-keywords {
-  background-color: rgb(52, 78, 224);
-  color: white;
+  /* background-color: rgb(52, 78, 224); */
+  color: var(--text-color);
   border-radius: 11px;
   padding: 5px;
   margin-top: 10px;
@@ -59,8 +58,12 @@ body {
 
 .random-button {
   font-size: 50px;
-  margin-right: 10px;
+  line-height: 50px;
   cursor: pointer;
+  vertical-align: bottom;
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .keyword {
@@ -107,7 +110,7 @@ body {
 .right,
 .left {
   font-size: 2em;
-  color: #fff;
+  color: var(--text-color);
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
@@ -145,23 +148,28 @@ body {
   display: flex;
   flex-direction: column;
   width: 24%;
-  height: 350px;
+  height: 240px;
   margin-right: calc((100% - (24% * 4)) / 3);
+  margin-bottom: 20px;
   cursor: pointer;
 }
 .card:nth-child(4n + 4) {
   margin: 0;
 }
 .card-image {
-  max-width: 260px;
-  min-width: 260px;
-  height: 70%;
+  /* max-width: 260px;
+  min-width: 260px; */
+  height: 100%;
 }
 .card-info {
   display: none;
   position: absolute;
-  right: 0;
-  bottom: 100px;
+  right: 10px;
+  bottom: 10px;
+  text-align: end;
+}
+.card-info p {
+  margin: 0;
 }
 .card:hover .card-info {
   display: block;
@@ -255,6 +263,9 @@ body {
   }
   .card:nth-child(2n + 2) {
     margin-right: 0;
+  }
+  .modal-contents {
+    width: 100%;
   }
 }
 @media (max-width: 576px) {
