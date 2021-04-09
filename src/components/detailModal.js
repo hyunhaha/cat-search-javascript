@@ -73,6 +73,12 @@ export default class DetailModal {
 
     closeBtn.addEventListener('click', () => { this.onClose(); });
     overlay.addEventListener('click', () => { this.onClose(); });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === "Escape") this.onClose();
+    });
+
+
     modalHeader.appendChild(modalTitle);
     modalHeader.appendChild(closeBtn);
 
