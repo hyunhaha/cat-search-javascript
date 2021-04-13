@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/hyunhaha/cat-search-javascript/issues"
   },
-  "homepage": "https://github.com/hyunhaha/cat-search-javascript#readme"
+  "homepage": "https://github.com/hyunhaha/cat-search-javascript#readme",
+  "dependencies": {}
 }
