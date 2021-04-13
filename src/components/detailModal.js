@@ -50,7 +50,7 @@ export default class DetailModal {
 
     const closeBtn = document.createElement('span');
     closeBtn.className = 'close-btn';
-    closeBtn.innerText = 'X';
+    // closeBtn.innerText = 'X';
 
     const modalImage = document.createElement('img');
     modalImage.className = 'modal-image';
@@ -75,7 +75,11 @@ export default class DetailModal {
     overlay.addEventListener('click', () => { this.onClose(); });
 
     window.addEventListener('keydown', (event) => {
-      if (event.key === "Escape") this.onClose();
+      event.stopImmediatePropagation()
+      if (event.key === "Escape") {
+
+        this.onClose();
+      }
     });
 
 
